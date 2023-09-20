@@ -1,6 +1,7 @@
 import javax.swing.JFrame;
 import java.awt.*;
 import java.awt.geom.Line2D;
+import java.awt.geom.Point2D;
 
 public class LineDrawing extends JFrame{
 
@@ -53,15 +54,33 @@ public class LineDrawing extends JFrame{
         y1 = (y1*-1)+250;
         x2 = x2+250;
         y2 = (y2*-1)+250;
-        //Line to draw:
-        g2d.setColor(Color.BLUE);
-        g2d.setStroke(new BasicStroke(4f));
 
-        //with exact point
+
+        //Line to draw between two points gived
+        g2d.setColor(Color.GRAY);
+        g2d.setStroke(new BasicStroke(2f));
         g2d.draw(new Line2D.Float(x1, y1, x2, y2));
 
+        //Line to draw between two far points (for a big line)
 
-     }
+        // Calcular las coordenadas para el extremo derecho (x = 1000)
+        float farY2 = y1 - pendiente * (1000 - x1);
+
+         // Calcular las coordenadas para el extremo izquierdo (x = -1000)
+        float farY3 = y1 - pendiente * (-1000 - x1);
+
+        //Draw long line
+        g2d.draw(new Line2D.Float(1000, farY2, -1000, farY3));
+
+        //Draw Two points
+        g2d.setColor(Color.RED);
+        g2d.setStroke(new BasicStroke(6f));
+        g2d.draw(new Line2D.Float(x1, y1, x1, y1));
+        g2d.draw(new Line2D.Float(x2, y2, x2, y2));
+
+
+
+    }
 
     public void paint(Graphics g) {
         super.paint(g);
