@@ -15,7 +15,7 @@ public class JPaneMultiple {
 
         boolean repeatInput = true;
         while (repeatInput) {
-            int option = JOptionPane.showConfirmDialog(null, message, "Cordenadas", JOptionPane.OK_CANCEL_OPTION);
+            int option = JOptionPane.showConfirmDialog(null, message, "Coordenadas", JOptionPane.OK_CANCEL_OPTION);
             if (option == JOptionPane.OK_OPTION) {
 
                 if( !x1Field.getText().isEmpty() && !y1Field.getText().isEmpty() && !x2Field.getText().isEmpty() && !y2Field.getText().isEmpty()){

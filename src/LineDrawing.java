@@ -57,8 +57,8 @@ public class LineDrawing extends JFrame{
 
 
         //Line to draw between two points gived
-        g2d.setColor(Color.GRAY);
-        g2d.setStroke(new BasicStroke(2f));
+        g2d.setColor(Color.GREEN);
+        g2d.setStroke(new BasicStroke(3f));
         g2d.draw(new Line2D.Float(x1, y1, x2, y2));
 
         //Line to draw between two far points (for a big line)
@@ -70,6 +70,8 @@ public class LineDrawing extends JFrame{
         float farY3 = y1 - pendiente * (-1000 - x1);
 
         //Draw long line
+        g2d.setColor(Color.GRAY);
+        g2d.setStroke(new BasicStroke(2f));
         g2d.draw(new Line2D.Float(1000, farY2, -1000, farY3));
 
         //Draw Two points
